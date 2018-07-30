@@ -62,3 +62,4 @@ typings/
 
 # additional file ignores
 dev.js
+\.vscode/
