@@ -63,3 +63,5 @@ typings/
 # additional file ignores
 dev.js
 \.vscode/
+
+client/config/\.env\.development
