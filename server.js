@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+var db = require('./database/index');
 
 if (process.env.NODE_ENV === 'production') {
 	// have express serve production assets that exist within the client build file
@@ -14,3 +15,7 @@ if (process.env.NODE_ENV === 'production') {
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT);
+
+app.get("/api/leagues", db.getAllLeagues);
+// app.get("/api/pets/:id", db.getPetById);
+// app.post("/api/pets", db.createPet);
