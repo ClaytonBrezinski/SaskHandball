@@ -17,5 +17,5 @@ const PORT = process.env.PORT || 3001;
 app.listen(PORT);
 
 app.get("/api/leagues", db.getAllLeagues);
-// app.get("/api/pets/:id", db.getPetById);
+app.get("/api/leagues/:id", db.getSingleLeague);
 // app.post("/api/pets", db.createPet);
