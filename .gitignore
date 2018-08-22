@@ -65,3 +65,5 @@ dev.js
 \.vscode/
 
 client/config/\.env\.development
+
+package-lock\.json
