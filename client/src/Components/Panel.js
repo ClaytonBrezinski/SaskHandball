@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Card from '@material-ui/core'
+import Card from '@material-ui/core';
 
-export default class Panel extends Component {
-	render() {
-		return <React.Fragment />;
-	}
-}
+export default (Panel = props => {
+	return <React.Fragment />;
+});
