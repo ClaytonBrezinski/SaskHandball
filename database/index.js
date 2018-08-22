@@ -84,7 +84,7 @@ function updateLeague(req, res, next) {
 module.exports = {
     getAllLeagues: getAllLeagues,
     getSingleLeague: getSingleLeague,
-    createLeague: createLeague
+    createLeague: createLeague,
     updateLeague: updateLeague,
     // removeLeague: removeLeague
 };
