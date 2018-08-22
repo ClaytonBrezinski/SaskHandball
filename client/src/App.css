@@ -37,8 +37,8 @@
 	background-size: cover;
   display: block;
   filter: blur(8px);
-  -webkit-filter: blur(4px);
-  height: 100%;
+  -webkit-filter: blur(8px);
+  height: 800px;
   left: 0;
   position: fixed;
   right: 0;
