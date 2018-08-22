@@ -64,27 +64,46 @@ function createLeague(req, res, next) {
 }
 
 function updateLeague(req, res, next) {
-	db.none('update league set league_cost=$1, year=$2, is_active=$3, name=$4 where id=$5',
-	  [req.body.name, req.body.breed, parseInt(req.body.age),
-		req.body.sex, parseInt(req.params.id)])
-	  .then(function () {
-		res.status(200)
-		  .json({
-			status: 'success',
-			data: data,
-			message: 'Updated league'
-		  });
-	  })
-	  .catch(function (err) {
-		return next(err);
-	  });
-  }
-  
+    db.none(
+        'update league set league_cost=$1, year=$2, is_active=$3, name=$4 where id=$5',
+        [
+            req.body.name,
+            req.body.breed,
+            parseInt(req.body.age),
+            req.body.sex,
+            parseInt(req.params.id)
+        ]
+    )
+        .then(function() {
+            res.status(200).json({
+                status: 'success',
+                data: data,
+                message: 'Updated league'
+            });
+        })
+        .catch(function(err) {
+            return next(err);
+        });
+}
+
+function removeLeague(req, res, next) {
+    var leagueID = parseInt(req.params.id);
+    db.result('delete from league where id = $1', leagueID)
+        .then(function(result) {
+            res.status(200).json({
+                status: 'success',
+                message: `Removed ${result.rowCount} league`
+            });
+        })
+        .catch(function(err) {
+            return next(err);
+        });
+}
 
 module.exports = {
     getAllLeagues: getAllLeagues,
     getSingleLeague: getSingleLeague,
     createLeague: createLeague,
     updateLeague: updateLeague,
-    // removeLeague: removeLeague
+    removeLeague: removeLeague
 };
