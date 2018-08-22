@@ -18,4 +18,4 @@ app.listen(PORT);
 
 app.get("/api/leagues", db.getAllLeagues);
 app.get("/api/leagues/:id", db.getSingleLeague);
-// app.post("/api/pets", db.createPet);
+app.post("/api/leagues", db.createLeague);
