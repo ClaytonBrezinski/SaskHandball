@@ -19,3 +19,4 @@ app.listen(PORT);
 app.get("/api/leagues", db.getAllLeagues);
 app.get("/api/leagues/:id", db.getSingleLeague);
 app.post("/api/leagues", db.createLeague);
+app.put('/api/leagues/:id', db.updateLeague);

@@ -63,11 +63,28 @@ function createLeague(req, res, next) {
         });
 }
 
+function updateLeague(req, res, next) {
+	db.none('update league set league_cost=$1, year=$2, is_active=$3, name=$4 where id=$5',
+	  [req.body.name, req.body.breed, parseInt(req.body.age),
+		req.body.sex, parseInt(req.params.id)])
+	  .then(function () {
+		res.status(200)
+		  .json({
+			status: 'success',
+			data: data,
+			message: 'Updated league'
+		  });
+	  })
+	  .catch(function (err) {
+		return next(err);
+	  });
+  }
+  
 
 module.exports = {
     getAllLeagues: getAllLeagues,
     getSingleLeague: getSingleLeague,
     createLeague: createLeague
-    // updateLeague: updateLeague,
+    updateLeague: updateLeague,
     // removeLeague: removeLeague
 };
