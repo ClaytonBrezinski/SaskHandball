@@ -1,10 +1,10 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import LeagueDropdown from './LeagueDropdown';
+import Dropdown from './dropdown';
 
-describe(<LeagueDropdown />, () => {
+describe(<Dropdown />, () => {
     it('renders without crashing', () => {
-        const wrapper = shallow(<LeagueDropdown />);
+        const wrapper = shallow(<Dropdown />);
         expect(wrapper);
     });
 });

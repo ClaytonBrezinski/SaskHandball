@@ -9,7 +9,7 @@ class App extends Component {
 		return (
 			<React.Fragment>
 				<div className="background-image" />
-				<LeagueSelect />
+
 				<div className="App">
 					<img src={logo} className="App-logo" alt="logo" />
 					<header className="App-header">
@@ -19,6 +19,7 @@ class App extends Component {
 						To get started, edit <code>src/App.js</code> and save to
 						reload.
 					</p>
+					<LeagueSelect />
 					<Payments />
 				</div>
 			</React.Fragment>
