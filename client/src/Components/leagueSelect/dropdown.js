@@ -1,9 +1,21 @@
 import React from 'react';
 import { InputLabel, Select, MenuItem, FormControl } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
 import request from 'request';
 
-export default class Dropdown extends React.Component {
+const styles = theme => ({
+	root: {
+		display: 'flex',
+		flexWrap: 'wrap',
+	},
+	formControl: {
+		margin: theme.spacing.unit,
+		minWidth: 120,
+	},
+});
+
+class Dropdown extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { selectState: '' };
@@ -14,9 +26,10 @@ export default class Dropdown extends React.Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		return (
-			<form>
-				<FormControl>
+			<form className={classes.root} autoComplete="off">
+				<FormControl className={classes.formControl}>
 					<InputLabel>{this.props.label}</InputLabel>
 					<Select
 						value={this.state.selectState}
@@ -39,3 +52,5 @@ Dropdown.props = {
 	otherValues: PropTypes.arrayOf(PropTypes.String),
 	requestURL: PropTypes.string,
 };
+
+export default withStyles(styles)(Dropdown);
