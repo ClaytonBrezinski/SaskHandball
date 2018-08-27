@@ -42,7 +42,7 @@ class Dropdown extends React.Component {
 						inputProps={{ name: 'selectState' }}
 					>
 						{/* if menuOptions exist, add tthem in here */}
-						{menuOptions ? menuOptions : <MenuItem value="" />}
+						{menuOptions.length > 0 ? menuOptions : <MenuItem />}
 					</Select>
 				</FormControl>
 			</form>
