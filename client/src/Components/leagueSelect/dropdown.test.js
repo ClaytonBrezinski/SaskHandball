@@ -25,4 +25,15 @@ describe(<Dropdown />, () => {
 		const wrapper = shallow(<Dropdown />);
 		expect(wrapper);
 	});
+	it('contains the dropdown ', () => {
+		const wrapper = shallow(<Dropdown />);
+		expect(wrapper.contains('Dropdown'));
+	});
+	it('contains the dropdown ', () => {
+		const wrapper = shallow(<Dropdown options={['a', 'b']} />);
+
+		// // .simulate('change', { target: { value: 'c' } });
+		// expect(wrapper.find('form.Dropdown')).toHaveLength(1)
+		// // ).toHaveBeenCalled();
+	});
 });

@@ -22,4 +22,8 @@ describe(<TextField />, () => {
 		const wrapper = shallow(<TextField />);
 		expect(wrapper);
 	});
+	it('contains the textfield ', () => {
+		const wrapper = shallow(<TextField />);
+		expect(wrapper.contains('TextField'));
+	});
 });
