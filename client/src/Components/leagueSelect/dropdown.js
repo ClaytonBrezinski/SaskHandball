@@ -27,10 +27,14 @@ class Dropdown extends React.Component {
 
 	render() {
 		const { classes } = this.props;
+		// manually state that this.props.options is an array, then run the map function on it
 		var menuOptions = Array.from(this.props.options);
-		console.log('options: ' + menuOptions);
-		var menuOptions = menuOptions.map(function(item) {
-			return <MenuItem value={item}>{item}</MenuItem>;
+		var menuOptions = menuOptions.map(function(item, i) {
+			return (
+				<MenuItem value={item} key={i}>
+					{item}
+				</MenuItem>
+			);
 		});
 		return (
 			<form className={classes.root} autoComplete="off">
@@ -41,7 +45,7 @@ class Dropdown extends React.Component {
 						onChange={this.handleChange}
 						inputProps={{ name: 'selectState' }}
 					>
-						{/* if menuOptions exist, add tthem in here */}
+						{/* if menuOptions exist, add them in here */}
 						{menuOptions.length > 0 ? menuOptions : <MenuItem />}
 					</Select>
 				</FormControl>
