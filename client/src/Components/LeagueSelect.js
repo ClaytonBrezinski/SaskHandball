@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Dropdown from './leagueSelect/dropdown';
+import { Dropdown, TextField } from './leagueSelect/index';
 import request from 'request';
 
 export default class LeagueSelect extends Component {
@@ -16,6 +16,7 @@ export default class LeagueSelect extends Component {
 			<React.Fragment>
 				<Dropdown label="testLabel" options={['a', 'b']} />
 				<Dropdown label="testLabel2" options />
+				<TextField name="test1" />
 			</React.Fragment>
 		);
 	}
