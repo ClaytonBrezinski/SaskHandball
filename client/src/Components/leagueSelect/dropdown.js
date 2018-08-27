@@ -27,6 +27,12 @@ class Dropdown extends React.Component {
 
 	render() {
 		const { classes } = this.props;
+		var menuOptions = Array.from(this.props.options);
+		console.log('options: ' + menuOptions);
+		var menuOptions = menuOptions.map(function(item) {
+			return <MenuItem value={item}>{item}</MenuItem>;
+		});
+		console.log(gg);
 		return (
 			<form className={classes.root} autoComplete="off">
 				<FormControl className={classes.formControl}>
@@ -36,9 +42,8 @@ class Dropdown extends React.Component {
 						onChange={this.handleChange}
 						inputProps={{ name: 'selectState' }}
 					>
-						<MenuItem value={this.props.defaultValue}>
-							{this.props.defaultValue}
-						</MenuItem>
+						{/* if menuOptions exist, add tthem in here */}
+						{menuOptions ? menuOptions : <MenuItem value="" />}
 					</Select>
 				</FormControl>
 			</form>
@@ -48,8 +53,7 @@ class Dropdown extends React.Component {
 
 Dropdown.props = {
 	label: PropTypes.string,
-	defaultValue: PropTypes.string.isRequired,
-	otherValues: PropTypes.arrayOf(PropTypes.String),
+	options: PropTypes.arrayOf(PropTypes.String),
 	requestURL: PropTypes.string,
 };
 
