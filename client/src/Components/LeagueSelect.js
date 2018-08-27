@@ -14,8 +14,8 @@ export default class LeagueSelect extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Dropdown label="testLabel" defaultValue="12" />
-                <Dropdown label="testLabel2" defaultValue="22" />
+				<Dropdown label="testLabel" options={['a', 'b']} />
+				<Dropdown label="testLabel2" options />
 			</React.Fragment>
 		);
 	}
