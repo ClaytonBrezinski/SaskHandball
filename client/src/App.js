@@ -20,7 +20,7 @@ class App extends Component {
 		return (
 			<React.Fragment>
 				<div className="background-image" />
-				<div style={styles.layout}>
+				<div className="app" style={styles.layout}>
 					<Grid
 						container
 						spacing={24}
