@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Payments from './Components/Payments';
 import LeagueSelect from './Components/LeagueSelect';
-import { Grid, Card, CardContent } from '@material-ui/core';
+import { Grid, Card, CardContent, Avatar } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = {
@@ -12,6 +12,12 @@ const styles = {
 		width: 'auto',
 		display: 'block', // Fix IE11 issue.
 		padding: '10px',
+	},
+	avatar: {
+		position: 'relative',
+		top: '40px',
+		width: '100px',
+		height: '100px',
 	},
 };
 
@@ -28,6 +34,11 @@ class App extends Component {
 						justify="center"
 						alignItems="center"
 					>
+						<Avatar
+							alt="SaskHandball Logo"
+							src="./Sask Handball Logo.PNG"
+							style={styles.avatar}
+						/>
 						<Card raised="true">
 							<CardContent>
 								<Grid item xs={24} L={24}>
