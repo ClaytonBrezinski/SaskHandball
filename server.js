@@ -12,9 +12,6 @@ if (process.env.NODE_ENV === 'production') {
 	});
 }
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT);
-
 app.get('/api/leagues', db.getAllLeagues);
 app.get('/api/leagues/:id', db.getSingleLeague);
 app.post('/api/leagues', db.createLeague);
@@ -47,3 +44,6 @@ app.use(function(err, req, res, next) {
 		message: err.message,
 	});
 });
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT);
