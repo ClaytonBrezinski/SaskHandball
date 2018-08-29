@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Payments from './Components/Payments';
 import LeagueSelect from './Components/LeagueSelect';
-import { Grid } from '@material-ui/core';
+import { Grid, Card, CardContent } from '@material-ui/core';
 import withStyles from '@material-ui/core/styles/withStyles';
 
 const styles = {
@@ -28,12 +28,14 @@ class App extends Component {
 						justify="center"
 						alignItems="center"
 					>
-						<Grid item xs={24} L={24}>
-							<LeagueSelect />
-						</Grid>
-						<Grid item xs={24} L={24}>
-							<Payments />
-						</Grid>
+						<Card raised="true">
+							<CardContent>
+								<Grid item xs={24} L={24}>
+									<LeagueSelect />
+									<Payments />
+								</Grid>
+							</CardContent>
+						</Card>
 					</Grid>
 				</div>
 			</React.Fragment>
