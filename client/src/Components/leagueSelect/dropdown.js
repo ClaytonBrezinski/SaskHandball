@@ -1,21 +1,9 @@
 import React from 'react';
-import { InputLabel, Select, MenuItem, FormControl } from '@material-ui/core';
-import { withStyles } from '@material-ui/core/styles';
+import { InputLabel, Select, MenuItem } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import request from 'request';
 
-const styles = theme => ({
-	root: {
-		display: 'flex',
-		flexWrap: 'wrap',
-	},
-	formControl: {
-		margin: theme.spacing.unit,
-		minWidth: 120,
-	},
-});
-
-class Dropdown extends React.Component {
+export default class Dropdown extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { selectState: '' };
@@ -26,10 +14,9 @@ class Dropdown extends React.Component {
 	};
 
 	render() {
-		const { classes } = this.props;
 		// manually state that this.props.options is an array, then run the map function on it
 		var menuOptions = Array.from(this.props.options);
-		var menuOptions = menuOptions.map(function(item, i) {
+		menuOptions = menuOptions.map(function(item, i) {
 			return (
 				<MenuItem value={item} key={i}>
 					{item}
@@ -37,19 +24,18 @@ class Dropdown extends React.Component {
 			);
 		});
 		return (
-			<form className={classes.root} autoComplete="off">
-				<FormControl className={classes.formControl}>
-					<InputLabel>{this.props.label}</InputLabel>
-					<Select
-						value={this.state.selectState}
-						onChange={this.handleChange}
-						inputProps={{ name: 'selectState' }}
-					>
-						{/* if menuOptions exist, add them in here */}
-						{menuOptions.length > 0 ? menuOptions : <MenuItem />}
-					</Select>
-				</FormControl>
-			</form>
+			<React.Fragment>
+				<InputLabel>{this.props.label}</InputLabel>
+				<Select
+					value={this.state.selectState}
+					onChange={this.handleChange}
+					inputProps={{ name: 'selectState' }}
+					fullWidth
+				>
+					{/* if menuOptions exist, add them in here */}
+					{menuOptions.length > 0 ? menuOptions : <MenuItem />}
+				</Select>
+			</React.Fragment>
 		);
 	}
 }
@@ -59,5 +45,3 @@ Dropdown.props = {
 	options: PropTypes.arrayOf(PropTypes.String),
 	requestURL: PropTypes.string,
 };
-
-export default withStyles(styles)(Dropdown);
