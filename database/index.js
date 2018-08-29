@@ -3,7 +3,7 @@ const keys = require('../config/keys');
 var promise = require('bluebird');
 
 var pgp = require('pg-promise')({ promiseLib: promise });
-
+var db;
 if (process.env.NODE_ENV != 'production') {
 	var postgresConfig = {
 		host: keys.databaseHost,
@@ -13,9 +13,10 @@ if (process.env.NODE_ENV != 'production') {
 		password: keys.databasePassword,
 		ssl: true,
 	};
+	db = pgp(process.env.postgresConfig);
+} else {
+	db = pgp(process.env.DATABASE_URL);
 }
-
-var db = pgp(postgresConfig);
 
 function getAllLeagues(req, res, next) {
 	db.any('select * from league')
