@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dropdown, TextField } from './leagueSelect/index';
 import request from 'request';
-import { Card, CardContent, Grid, FormControl } from '@material-ui/core';
+import { Grid, FormControl } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
@@ -11,7 +11,7 @@ const styles = theme => ({
 	},
 	formControl: {
 		margin: theme.spacing.unit,
-		minWidth: 120,
+		minWidth: 200,
 	},
 });
 class LeagueSelect extends React.Component {
@@ -26,26 +26,16 @@ class LeagueSelect extends React.Component {
 	render() {
 		const { classes } = this.props;
 		return (
-			<Card raised="true" style={{ padding: '15px' }}>
-				<CardContent>
-					<Grid
-						container
-						spacing={24}
-						direction="column"
-						justify="center"
-						alignItems="center"
-					>
-						<form className={classes.container} autoComplete="off">
-							<FormControl className={classes.formControl}>
-								<Dropdown label="League" options={['a', 'b']} />
-								<Dropdown label="Team" options />
-								<TextField name="FirstName" />
-								<TextField name="LastName" />
-							</FormControl>
-						</form>
-					</Grid>
-				</CardContent>
-			</Card>
+			<Grid>
+				<form className={classes.container} autoComplete="off">
+					<FormControl className={classes.formControl}>
+						<Dropdown label="League" options={['a', 'b']} />
+						<Dropdown label="Team" options />
+						<TextField name="FirstName" />
+						<TextField name="LastName" />
+					</FormControl>
+				</form>
+			</Grid>
 		);
 	}
 }

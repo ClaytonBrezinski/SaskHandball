@@ -1,9 +1,16 @@
 import React from 'react';
-import { InputLabel, Select, MenuItem } from '@material-ui/core';
+import { InputLabel, Select, MenuItem, FormControl } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import request from 'request';
+import { withStyles } from '@material-ui/core/styles';
 
-export default class Dropdown extends React.Component {
+const styles = theme => ({
+	container: {
+		display: 'flex',
+		flexWrap: 'wrap',
+	},
+});
+class Dropdown extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = { selectState: '' };
@@ -14,6 +21,7 @@ export default class Dropdown extends React.Component {
 	};
 
 	render() {
+		const { classes } = this.props;
 		// manually state that this.props.options is an array, then run the map function on it
 		var menuOptions = Array.from(this.props.options);
 		menuOptions = menuOptions.map(function(item, i) {
@@ -24,7 +32,7 @@ export default class Dropdown extends React.Component {
 			);
 		});
 		return (
-			<React.Fragment>
+			<FormControl className={classes.formControl} margin="normal">
 				<InputLabel>{this.props.label}</InputLabel>
 				<Select
 					value={this.state.selectState}
@@ -32,10 +40,10 @@ export default class Dropdown extends React.Component {
 					inputProps={{ name: 'selectState' }}
 					fullWidth
 				>
-					{/* if menuOptions exist, add them in here */}
+					{/* if menuOptions exist, add  them in here */}
 					{menuOptions.length > 0 ? menuOptions : <MenuItem />}
 				</Select>
-			</React.Fragment>
+			</FormControl>
 		);
 	}
 }
@@ -45,3 +53,5 @@ Dropdown.props = {
 	options: PropTypes.arrayOf(PropTypes.String),
 	requestURL: PropTypes.string,
 };
+
+export default withStyles(styles)(Dropdown);
