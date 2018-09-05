@@ -1,25 +1,26 @@
 {
-    "name": "client",
-    "version": "0.1.0",
-    "private": true,
-    "proxy": "http://localhost:5000",
-    "dependencies": {
-        "@material-ui/core": "^1.4.2",
-        "react": "^16.4.1",
-        "react-dom": "^16.4.1",
-        "react-router-dom": "^4.3.1",
-        "react-scripts": "1.1.4",
-        "react-stripe-checkout": "^2.6.3"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test --env=jsdom --watchAll --coverage",
-        "eject": "react-scripts eject"
-    },
-    "devDependencies": {
-        "enzyme": "^3.4.4",
-        "enzyme-adapter-react-16": "^1.2.0",
-        "react-test-renderer": "^16.4.2"
-    }
+	"name": "client",
+	"version": "0.1.0",
+	"private": true,
+	"proxy": "http://localhost:5000",
+	"dependencies": {
+		"@material-ui/core": "^1.4.2",
+		"enzyme-to-json": "^3.3.4",
+		"react": "^16.4.1",
+		"react-dom": "^16.4.1",
+		"react-router-dom": "^4.3.1",
+		"react-scripts": "1.1.4",
+		"react-stripe-checkout": "^2.6.3"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build",
+		"test": "react-scripts test --env=jsdom --watchAll --coverage",
+		"eject": "react-scripts eject"
+	},
+	"devDependencies": {
+		"enzyme": "^3.4.4",
+		"enzyme-adapter-react-16": "^1.2.0",
+		"react-test-renderer": "^16.4.2"
+	}
 }
