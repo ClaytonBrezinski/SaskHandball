@@ -1,29 +1,28 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { assert } from 'chai';
 import { createShallow, createMount } from '@material-ui/core/test-utils';
 import TextField from './textField';
-import { InputLabel, Select, MenuItem, FormControl } from '@material-ui/core';
+import {
+	InputLabel,
+	Select,
+	MenuItem,
+	FormControl,
+	AppBar,
+} from '@material-ui/core';
 
 describe(<TextField />, () => {
-	let props;
-	let shallow;
-	let mount;
-
-	beforeEach(() => {
+	describe('Shallow', () => {
 		shallow = createShallow();
-		mount = createMount();
-	});
+		let wrapper = shallow(<TextField />);
 
-	afterEach(() => {
-		mount.cleanUp();
-	});
+		it('renders without crashing and without props', wrapper => {
+			expect(wrapper);
+		});
 
-	it('renders without crashing and without props', () => {
-		const wrapper = shallow(<TextField />);
-		expect(wrapper);
-	});
-	it('contains the textfield ', () => {
-		const wrapper = shallow(<TextField />);
-		expect(wrapper.contains('TextField'));
+		it('should be a TextField', wrapper => {
+			assert.strictEqual(wrapper.type(), TextField);
+		});
+
+		it('updates visible value when text is entered', () => {});
 	});
 });
